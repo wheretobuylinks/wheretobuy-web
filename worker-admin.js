@@ -37,7 +37,7 @@ export default {
       if (get.ok) {
         const current = await get.json();
         sha = current.sha;
-        try { posts = JSON.parse(atob(current.content.replace(/\\n/g, ""))); } catch { posts = []; }
+        try { const binary = atob(current.content.replace(/\\n/g, "")); const bytes = Uint8Array.from(binary, char => char.charCodeAt(0)); posts = JSON.parse(new TextDecoder().decode(bytes)); } catch { posts = []; }
       } else if (get.status !== 404) {
         return new Response(JSON.stringify({ error: "No se pudo leer el archivo de posts en GitHub." }), { status: 502, headers: { ...cors, "Content-Type": "application/json" } });
       }
