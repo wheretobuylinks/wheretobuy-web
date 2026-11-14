@@ -40,4 +40,30 @@ function filterProducts(q){q=q.toLowerCase().trim();document.querySelectorAll('.
 document.getElementById('searchBtn').onclick=()=>filterProducts(document.getElementById('search').value);document.getElementById('search').addEventListener('keydown',e=>{if(e.key==='Enter')filterProducts(e.target.value)});document.querySelectorAll('[data-filter]').forEach(el=>el.onclick=()=>filterProducts(el.dataset.filter));
 const feedView=document.getElementById('feedView');document.getElementById('openFeed').onclick=()=>{feedView.style.display='block';document.body.style.overflow='hidden';feedView.scrollTop=0};document.getElementById('closeFeed').onclick=()=>{feedView.style.display='none';document.body.style.overflow=''};
 document.getElementById('year').textContent=new Date().getFullYear();
+async function loadPublishedPosts(){
+ try{
+  const response=await fetch('/posts.json?refresh='+Date.now());
+  if(!response.ok)return;
+  const posts=await response.json();if(!Array.isArray(posts)||!posts.length)return;
+  const feed=document.querySelector('.feed');feed.innerHTML='';
+  posts.forEach(post=>{
+   const card=document.createElement('article');card.className='feed-card';
+   const media=document.createElement('div');media.className='feed-media';media.style.background='#edf1e8';media.style.fontSize='18px';
+   if(post.imageUrl){const img=document.createElement('img');img.src=post.imageUrl;img.alt=post.title||'Product';img.style.cssText='width:100%;height:100%;object-fit:cover';media.appendChild(img)}
+   else media.textContent='🛍️';
+   const meta=document.createElement('div');meta.className='feed-meta';
+   const label=document.createElement('div');label.className='feed-label';label.textContent='Product find';
+   const title=document.createElement('b');title.textContent=post.title||'Product';
+   const desc=document.createElement('p');desc.textContent=post.description||'Discover the product and find where to buy it.';
+   const actions=document.createElement('div');actions.className='feed-actions';
+   const original=document.createElement('a');original.href=post.socialUrl;original.target='_blank';original.rel='noopener noreferrer';original.textContent='Original post ↗';original.style.cssText='display:inline-block;background:#17251d;color:white;border-radius:10px;padding:11px 14px;font-weight:800;font-size:12px';
+   const buy=document.createElement('a');buy.href=post.buyUrl;buy.target='_blank';buy.rel='noopener noreferrer';buy.textContent='Where to buy ↗';buy.style.cssText='display:inline-block;background:#17251d;color:white;border-radius:10px;padding:11px 14px;font-weight:800;font-size:12px';
+   actions.append(original,buy);meta.append(label,title,desc,actions);card.append(media,meta);feed.appendChild(card);
+  });
+  const vertical=document.querySelector('.vertical-feed');vertical.innerHTML='';
+  posts.forEach((post,i)=>{const article=document.createElement('article');const label=document.createElement('div');label.className='feed-label';label.textContent=String(i+1).padStart(2,'0')+' / PRODUCT FIND';const emoji=document.createElement('div');emoji.className='big-emoji';emoji.textContent='🛍️';const wrap=document.createElement('div');const h=document.createElement('h2');h.textContent=post.title||'Product';const p=document.createElement('p');p.textContent=post.description||'Find where to buy this product.';const actions=document.createElement('div');actions.className='feed-actions';[['Product details',post.socialUrl],['Where to buy ↗',post.buyUrl]].forEach(([txt,url])=>{const a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener noreferrer';a.textContent=txt;a.style.cssText='display:inline-block;background:#17251d;color:white;border-radius:10px;padding:11px 14px;font-weight:800;font-size:12px;margin:4px';actions.appendChild(a)});wrap.append(h,p,actions);article.append(label,emoji,wrap);vertical.appendChild(article)});
+ }catch(e){console.warn('Posts could not be loaded',e)}
+}
+loadPublishedPosts();
+
 </script></body></html>
