@@ -13,7 +13,7 @@
 <button id="submit" type="submit">Publicar producto</button><div id="result" role="status"></div>
 </form><small>La clave se envía únicamente al endpoint configurado. No pongas tokens de GitHub aquí.</small></div></div>
 <script>
-const WORKER_URL="PEGAR_URL_DE_CLOUDFLARE_WORKER_AQUI";
+const WORKER_URL="https://where-to-buy-admin.trendinginaliexpress.workers.dev/";
 const form=document.getElementById("form"), result=document.getElementById("result"), submit=document.getElementById("submit");
 form.addEventListener("submit",async e=>{e.preventDefault();if(WORKER_URL.includes("PEGAR_URL")){result.style.display="block";result.textContent="Falta configurar la URL del Worker en este archivo.";return}
 submit.disabled=true;submit.textContent="Publicando…";result.style.display="block";result.textContent="Enviando…";
