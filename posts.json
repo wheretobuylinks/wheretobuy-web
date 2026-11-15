@@ -1,11 +1,40 @@
 [
   {
     "id": "1a1a0410-41ac-48d6-8beb-f477e27f87d2",
-    "title": "Vestido de verano elegante para mujer",
-    "socialUrl": "https://instagram.com",
-    "buyUrl": "https://arg.shein.com/Maija-Women-s-Mid-Length-Sleeveless-A-Line-Flared-White-Autumn-Elegant-Tea-Party-Dress-Patchwork-Solid-Color-Fitted-Casual-Party-Beach-Vacation-Outfits-p-13509779.html?isAppointMall=null&mallCode=1&detailBusinessFrom=0-2",
-    "imageUrl": "https://img.ltwebstatic.com/v4/p/pics1/2026/04/08/56/1775633028559e65d98d6c66941c8e43657f6b9c95.png",
-    "description": "Maija Vestido de verano elegante para mujer, de largo medio, sin mangas, línea A, acampanado, blanco, para fiesta de té, con patchwork de unicolor, ajustado, casual, para fiesta, playa y vacaciones",
+    "type": "product",
+    "category": "Home & Kitchen",
+    "title": "Owala FreeSip Stainless Steel Water Bottle 32 oz Black Cherry",
+    "subtitle": "",
+    "excerpt": "2-in-1 Sip or Swig Spout | Leakproof when Locked | Push-Button Lid | Carry Loop | Triple-Wall Insulated",
+    "coverImage": "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/I/411VuaxGFsL._AC_SL1080_.jpg",
+    "body": "Maija Vestido de verano elegante para mujer, de largo medio, sin mangas, línea A, acampanado, blanco, para fiesta de té, con patchwork de unicolor, ajustado, casual, para fiesta, playa y vacaciones",
+    "sections": [
+      {
+        "heading": "",
+        "text": "",
+        "image": ""
+      }
+    ],
+    "videoUrl": "",
+    "socialUrl": "https://instagram.com/",
+    "tags": [
+      "Thermoses"
+    ],
+    "product": {
+      "name": "",
+      "price": "",
+      "details": "",
+      "links": [
+        {
+          "label": "Comprar",
+          "url": "https://arg.shein.com/Maija-Women-s-Mid-Length-Sleeveless-A-Line-Flared-White-Autumn-Elegant-Tea-Party-Dress-Patchwork-Solid-Color-Fitted-Casual-Party-Beach-Vacation-Outfits-p-13509779.html?isAppointMall=null&mallCode=1&detailBusinessFrom=0-2"
+        },
+        {
+          "label": "Comprar",
+          "url": "https://www.amazon.com/dp/B0FK1LF5PM/"
+        }
+      ]
+    },
     "createdAt": "2026-11-15T02:04:14.070Z"
   }
 ]
