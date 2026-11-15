@@ -14,7 +14,7 @@ export default {async fetch(request,env){
   if(p.coverImage&&!post.coverImage||p.videoUrl&&!post.videoUrl||p.socialUrl&&!post.socialUrl)return json({error:"Los enlaces deben ser URL https válidas."},400);
   const api=`https://api.github.com/repos/${OWNER}/${REPO}/contents/${FILE}`,headers={Authorization:`Bearer ${env.GITHUB_TOKEN}`,"X-GitHub-Api-Version":"2022-11-28",Accept:"application/vnd.github+json","Content-Type":"application/json","User-Agent":"WhereToBuyAdmin"};
   const get=await fetch(api+`?ref=${BRANCH}`,{headers});let posts=[],sha;
-  if(get.ok){const current=await get.json();sha=current.sha;try{const b=atob(current.content.replace(/\\n/g,""));posts=JSON.parse(new TextDecoder().decode(Uint8Array.from(b,c=>c.charCodeAt(0))))}catch{return json({error:"No se pudo leer posts.json; no se modificó el contenido."},502)}}
+  if(get.ok){const current=await get.json();sha=current.sha;try{const b=atob(current.content.replace(/\s/g,""));posts=JSON.parse(new TextDecoder().decode(Uint8Array.from(b,c=>c.charCodeAt(0))))}catch{return json({error:"No se pudo leer posts.json; no se modificó el contenido."},502)}}
   else if(get.status!==404)return json({error:"No se pudo leer el archivo de publicaciones."},502);
   const index=posts.findIndex(x=>x.id===post.id);if(index>=0)posts[index]=post;else posts.unshift(post);
   const content=btoa(unescape(encodeURIComponent(JSON.stringify(posts,null,2))));
