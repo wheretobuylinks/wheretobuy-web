@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Where to Buy — Panel de posts</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f6f6f2;color:#1b201c;font:16px system-ui,Arial}.wrap{max-width:620px;margin:40px auto;padding:22px}.card{background:white;border:1px solid #e7e9e2;border-radius:20px;padding:26px;box-shadow:0 8px 24px #1b201c0a}h1{margin:0 0 8px;font-size:28px}p{color:#727970;line-height:1.5}label{display:block;font-weight:700;font-size:13px;margin:16px 0 6px}input,textarea{width:100%;padding:12px;border:1px solid #dfe4dc;border-radius:10px;font:inherit}textarea{min-height:90px;resize:vertical}button{margin-top:20px;width:100%;border:0;border-radius:11px;background:#2f5d46;color:white;padding:14px;font-weight:800;font:inherit;cursor:pointer}#result{padding:12px;border-radius:10px;margin-top:12px;display:none;white-space:pre-wrap}small{color:#727970}
+</style></head><body><div class="wrap"><div class="card"><h1>Panel de publicaciones</h1><p>Cargá el post de la red social y el enlace para comprar. Al publicar, se guarda en GitHub y se actualiza la web tras el deploy.</p>
+<form id="form">
+<label>Clave privada del panel</label><input id="password" type="password" required autocomplete="current-password" placeholder="Tu clave de publicación">
+<label>Título del producto</label><input id="title" maxlength="180" required placeholder="Ej.: Mini proyector portátil">
+<label>Enlace al post original (Instagram/TikTok/etc.)</label><input id="socialUrl" type="url" required placeholder="https://...">
+<label>Enlace afiliado / dónde comprar</label><input id="buyUrl" type="url" required placeholder="https://...">
+<label>Enlace de imagen (opcional)</label><input id="imageUrl" type="url" placeholder="https://...">
+<label>Descripción (opcional)</label><textarea id="description" maxlength="500" placeholder="Breve descripción del producto"></textarea>
+<button id="submit" type="submit">Publicar producto</button><div id="result" role="status"></div>
+</form><small>La clave se envía únicamente al endpoint configurado. No pongas tokens de GitHub aquí.</small></div></div>
+<script>
+const WORKER_URL="https://where-to-buy-admin.trendinginaliexpress.workers.dev/";
+const form=document.getElementById("form"), result=document.getElementById("result"), submit=document.getElementById("submit");
+form.addEventListener("submit",async e=>{e.preventDefault();if(WORKER_URL.includes("PEGAR_URL")){result.style.display="block";result.textContent="Falta configurar la URL del Worker en este archivo.";return}
+submit.disabled=true;submit.textContent="Publicando…";result.style.display="block";result.textContent="Enviando…";
+try{const response=await fetch(WORKER_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({password:document.getElementById("password").value,title:document.getElementById("title").value,socialUrl:document.getElementById("socialUrl").value,buyUrl:document.getElementById("buyUrl").value,imageUrl:document.getElementById("imageUrl").value,description:document.getElementById("description").value})});const data=await response.json();result.textContent=data.message||data.error||"Respuesta recibida";if(response.ok){form.reset()} }catch{result.textContent="No se pudo conectar. Revisá la configuración del Worker."}finally{submit.disabled=false;submit.textContent="Publicar producto"}});
+</script></body></html>
