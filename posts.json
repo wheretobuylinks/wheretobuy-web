@@ -36,5 +36,92 @@
       ]
     },
     "createdAt": "2026-11-15T02:04:14.070Z"
+  },
+  {
+    "id": "demo-short-01",
+    "type": "post",
+    "category": "wybshorts",
+    "socialPlatform": "YouTube",
+    "title": "Mini proyector: cine en cualquier rincón",
+    "subtitle": "Demo Short · Tecnología",
+    "excerpt": "Un proyector portátil para transformar una pared en pantalla. Ejemplo de publicación vertical con enlace social y ficha del producto.",
+    "coverImage": "",
+    "socialUrl": "https://www.youtube.com/watch?v=v2MOPr2SoD0",
+    "videoUrl": "https://www.youtube.com/watch?v=v2MOPr2SoD0",
+    "tags": [
+      "wybshorts",
+      "tech"
+    ],
+    "body": "Contenido de prueba. Agregá aquí descripción, características y links de compra.",
+    "product": {
+      "name": "Mini proyector portátil",
+      "price": "Precio a completar",
+      "details": "Demo de ficha de producto",
+      "links": [
+        {
+          "label": "Tienda (demo)",
+          "url": "https://www.amazon.com/"
+        }
+      ]
+    },
+    "createdAt": "2026-11-16T16:00:00.000Z"
+  },
+  {
+    "id": "demo-short-02",
+    "type": "post",
+    "category": "wybshorts",
+    "socialPlatform": "YouTube",
+    "title": "Auriculares inalámbricos para todos los días",
+    "subtitle": "Demo Short · Gadgets",
+    "excerpt": "Un ejemplo de post de auriculares. Se muestra en el scroll vertical y se puede navegar al siguiente o anterior.",
+    "coverImage": "",
+    "socialUrl": "https://www.youtube.com/watch?v=v2MOPr2SoD0",
+    "videoUrl": "https://www.youtube.com/watch?v=v2MOPr2SoD0",
+    "tags": [
+      "wybshorts",
+      "audio"
+    ],
+    "body": "Contenido de prueba. Reemplazá el enlace de video y los datos por tu publicación real.",
+    "product": {
+      "name": "Auriculares inalámbricos",
+      "price": "Precio a completar",
+      "details": "Demo de ficha de producto",
+      "links": [
+        {
+          "label": "Tienda (demo)",
+          "url": "https://www.amazon.com/"
+        }
+      ]
+    },
+    "createdAt": "2026-11-16T16:01:00.000Z"
+  },
+  {
+    "id": "demo-short-03",
+    "type": "post",
+    "category": "wybshorts",
+    "socialPlatform": "YouTube",
+    "title": "Lámpara sunset: un toque de ambiente",
+    "subtitle": "Demo Short · Hogar",
+    "excerpt": "Ejemplo de contenido para hogar y decoración, con embed social responsivo y acceso a los detalles del producto.",
+    "coverImage": "",
+    "socialUrl": "https://www.youtube.com/watch?v=v2MOPr2SoD0",
+    "videoUrl": "https://www.youtube.com/watch?v=v2MOPr2SoD0",
+    "tags": [
+      "wybshorts",
+      "home"
+    ],
+    "body": "Contenido de prueba. Completá texto, producto y enlaces de compra desde tu panel.",
+    "product": {
+      "name": "Lámpara sunset",
+      "price": "Precio a completar",
+      "details": "Demo de ficha de producto",
+      "links": [
+        {
+          "label": "Tienda (demo)",
+          "url": "https://www.amazon.com/"
+        }
+      ]
+    },
+    "createdAt": "2026-11-16T16:02:00.000Z"
   }
 ]
