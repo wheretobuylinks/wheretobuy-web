@@ -143,12 +143,15 @@ function openTrendFeed(){
 }
 function loadTrendWindow(index){
  const root=document.getElementById('trendScroll');
- [index-1,index,index+1].forEach(i=>{
-  if(i<0||i>=trendVisibleItems.length)return;
+ trendVisibleItems.forEach((item,i)=>{
   const holder=document.getElementById('trend-embed-'+i);
-  if(!holder||holder.dataset.loaded)return;
+  if(!holder)return;
+  if(Math.abs(i-index)>1){
+   if(holder.dataset.loaded){holder.innerHTML='<div class="tweet-placeholder">Deslizá para cargar esta publicación</div>';holder.dataset.loaded='';}
+   return;
+  }
+  if(holder.dataset.loaded)return;
   holder.dataset.loaded='1';
-  const item=trendVisibleItems[i];
   holder.innerHTML='<blockquote class="twitter-tweet" data-theme="light" data-conversation="none"><a href="'+item.url+'">Ver publicación en X</a></blockquote>';
   if(window.twttr&&window.twttr.widgets)window.twttr.widgets.load(holder);
  });
