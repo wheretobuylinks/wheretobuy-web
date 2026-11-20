@@ -11,6 +11,35 @@
 .overlay{display:none;position:fixed;inset:0;background:#05070bf5;z-index:30;align-items:center;justify-content:center;padding:12px}.overlay.open{display:flex}.viewer{width:min(470px,100%);height:min(900px,96dvh);display:flex;flex-direction:column;gap:9px}.viewerbar{display:flex;justify-content:space-between;align-items:center;font-weight:900}.viewerbar button{border:1px solid #394153;background:#1b2230;color:white;border-radius:9px;padding:9px 12px}.video-feed{flex:1;min-height:0;overflow-y:auto;scroll-snap-type:y mandatory;border-radius:18px;overscroll-behavior:contain}.video-item{height:100%;min-height:100%;scroll-snap-align:start;position:relative;overflow:hidden;background:#141c2a}.video-item video,.video-item img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}.video-item:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#03050bd9,transparent 32%,#03050b44)}.v-actions{position:absolute;right:13px;bottom:26px;z-index:2;display:grid;gap:17px;text-align:center;font-size:11px}.v-actions b{display:block;font-size:21px}.v-cat{position:absolute;left:17px;bottom:25px;z-index:2;background:#1119;padding:8px 12px;border-radius:20px;font-size:11px;font-weight:900}.filterbar{display:flex;gap:7px;overflow:auto;padding:3px 0 8px}.filterbar button{white-space:nowrap;border:1px solid #394153;background:#1b2230;color:#dce2ed;border-radius:20px;padding:8px 12px;font-size:10px;font-weight:850}.filterbar button.active{background:var(--lime);color:#111;border-color:var(--lime)}.news-view{width:min(560px,100%);height:min(900px,96dvh);display:flex;flex-direction:column;gap:9px}.news-scroll{overflow-y:auto;scroll-snap-type:y mandatory;border-radius:17px;flex:1}.news-slide{min-height:100%;height:100%;scroll-snap-align:start;position:relative;background:#151c28;display:flex;flex-direction:column;justify-content:end;padding:22px;overflow:hidden}.news-slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.news-slide:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#05070bf5 4%,#05070b99 45%,#05070b12)}.news-slide .slidecopy{position:relative;z-index:1}.slidecopy h2{font-size:27px;line-height:1.08;margin:12px 0}.slidecopy p{color:#d0d6e0;line-height:1.55;font-size:13px}.slidecopy small{color:var(--lime);font-weight:900}.slidecopy .btn{margin-top:12px}
 @media(max-width:900px){.wrap{padding:0 18px}nav{gap:12px}.hero{grid-template-columns:1fr}.grid{grid-template-columns:repeat(3,1fr)}.post-feed{grid-template-columns:1fr}.trend-layout{grid-template-columns:1fr}.side-cats{flex-direction:row;overflow:auto}.side-cats button{white-space:nowrap}.trend-list{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.wrap{padding:0 13px}header{height:62px;gap:12px}nav{overflow:auto}nav a{white-space:nowrap;font-size:10px}nav a:nth-child(n+4){display:none}.topsearch{display:none}.brand{font-size:20px}.hero{padding-top:20px}.hero-main,.hero-side{padding:23px;min-height:280px}.hero h1{font-size:42px}.grid{grid-template-columns:repeat(2,1fr)}.art{height:185px}.short-launch{grid-template-columns:repeat(2,1fr)}.short-tile{height:190px}.trend-list{grid-template-columns:1fr}.news-card{grid-template-columns:38% 1fr}.news-copy{padding:12px}.news-copy h3{font-size:13px}.head h2{font-size:21px}.foot{flex-direction:column}}
+
+/* Argentina trends: immersive one-post-per-screen feed */
+#trendList{display:block}
+.trend-launch{background:linear-gradient(120deg,#151d2a,#211b36);border:1px solid #39445a;border-radius:16px;padding:22px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.trend-launch h3{font-size:18px;margin:0 0 6px}.trend-launch p{color:var(--muted);margin:0;font-size:12px;line-height:1.5}
+.trend-open{border:0;border-radius:50%;width:48px;height:48px;background:var(--lime);color:#10150a;font-size:25px;font-weight:900;flex:none}
+.trend-overlay{position:fixed;inset:0;background:#05070bf7;z-index:40;display:none;padding:10px;align-items:center;justify-content:center}
+.trend-overlay.open{display:flex}
+.trend-shell{width:min(760px,100%);height:min(920px,98dvh);display:flex;flex-direction:column;gap:8px}
+.trend-topbar{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.trend-topbar strong{font-size:13px;letter-spacing:.5px}
+.trend-topbar button{background:#1a2230;color:#fff;border:1px solid #394153;border-radius:50%;width:38px;height:38px;font-size:19px}
+.trend-filter{display:flex;gap:7px;overflow:auto;padding:2px 0 8px}
+.trend-filter button{white-space:nowrap;border:1px solid #394153;background:#1a2230;color:#e1e6ef;border-radius:22px;padding:8px 12px;font-size:10px;font-weight:850}
+.trend-filter button.active{background:var(--lime);color:#111;border-color:var(--lime)}
+.trend-scroll{position:relative;flex:1;min-height:0;overflow-y:auto;scroll-snap-type:y mandatory;overscroll-behavior:contain;border-radius:18px;scrollbar-width:none}
+.trend-scroll::-webkit-scrollbar{display:none}
+.trend-slide{height:100%;min-height:100%;scroll-snap-align:start;scroll-snap-stop:always;position:relative;background:radial-gradient(ellipse at top,#202a3b,#0b1019 65%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px 64px 18px 18px;overflow:hidden}
+.trend-slide .tweet-frame{width:min(560px,100%);max-height:100%;overflow:auto;border-radius:14px;background:#fff;color:#111;padding:8px}
+.trend-slide .tweet-frame blockquote{margin:0 auto!important}
+.trend-slide .tweet-frame iframe{max-width:100%!important}
+.trend-slide .trend-index{position:absolute;left:17px;top:15px;color:#aeb8c8;font-size:10px;font-weight:900;letter-spacing:1px}
+.trend-slide .trend-cat{position:absolute;left:17px;bottom:13px;color:#aeb8c8;font-size:10px}
+.trend-arrows{position:absolute;right:13px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:12px;z-index:3}
+.trend-arrows button{width:42px;height:42px;border:1px solid #ffffff35;border-radius:50%;background:#202a3dcc;color:white;font-size:22px;backdrop-filter:blur(8px)}
+.trend-arrows button:active{background:var(--lime);color:#111}
+.trend-empty{color:#aeb8c8;text-align:center;font-size:13px}
+@media(max-width:600px){.trend-overlay{padding:6px}.trend-shell{height:calc(100dvh - 12px)}.trend-slide{padding:14px 54px 14px 10px}.trend-slide .tweet-frame{padding:5px}.trend-arrows{right:7px}.trend-arrows button{width:38px;height:38px}.trend-launch{padding:17px}}
+
 </style>
 </head>
 <body><div class="wrap">
@@ -41,6 +70,7 @@
 </div></section>
 <section id="tendencias"><div class="head"><div><div class="eyebrow">Sección independiente</div><h2>🇦🇷 Tendencias en Argentina</h2><p>Una vidriera de los posts más destacados de X, ordenados por likes dentro de cada categoría.</p></div><span class="eyebrow">EXPERIMENTO</span></div><div class="trend-layout"><aside class="side-cats" id="trendCats"></aside><div><div class="feed-intro"><span id="trendLabel">Lo más destacado de Argentina</span><span>♥ Orden: más likes</span></div><div class="trend-list" id="trendList"></div></div></div></section>
 </main><footer><span>WBL PLAY · PROTOTIPO VISUAL</span><span>Contenido de ejemplo. No modifica el sitio principal.</span></footer></div>
+<div class="trend-overlay" id="trendOverlay"><div class="trend-shell"><div class="trend-topbar"><strong>🇦🇷 TENDENCIAS EN ARGENTINA</strong><button onclick="closeTrendFeed()" aria-label="Cerrar">×</button></div><div class="trend-filter" id="trendViewerCats"></div><div class="trend-scroll" id="trendScroll"></div><div class="trend-arrows"><button onclick="moveTrend(-1)" aria-label="Publicación anterior">↑</button><button onclick="moveTrend(1)" aria-label="Publicación siguiente">↓</button></div></div></div>
 <!-- Shorts viewer: videos sin títulos ni descripciones -->
 <div class="overlay" id="shortOverlay"><div class="viewer"><div class="viewerbar"><b>WBL PLAY / SHORTS</b><button onclick="closeOverlay('shortOverlay')">Cerrar ✕</button></div><div class="filterbar" id="shortViewerCats"></div><div class="video-feed" id="shortVideoFeed"></div></div></div>
 <!-- Feed editorial vertical -->
@@ -87,14 +117,50 @@ function openShortFeed(){renderShortViewer(shortCategory);openOverlay('shortOver
 function renderShortViewer(cat){const options=['Todos',...categories.filter(x=>x!=='Todos')];document.getElementById('shortViewerCats').innerHTML=options.map(c=>'<button class="'+(c===cat?'active':'')+'" data-c="'+c+'">'+(catEmoji[c]||'')+' '+c+'</button>').join('');document.querySelectorAll('#shortViewerCats button').forEach(b=>b.onclick=()=>renderShortViewer(b.dataset.c));const list=shorts.filter(x=>cat==='Todos'||x.cat===cat);document.getElementById('shortVideoFeed').innerHTML=list.map(x=>'<div class="video-item"><video src="'+x.video+'" poster="'+x.poster+'" controls playsinline loop muted></video><div class="v-cat">'+catEmoji[x.cat]+' '+x.cat+'</div><div class="v-actions"><div><b>♡</b>Me gusta</div><div><b>↗</b>Compartir</div></div></div>').join('')||'<div class="video-item"><div class="v-cat">Todavía no hay shorts en esta categoría.</div></div>';document.getElementById('shortVideoFeed').scrollTop=0;const vids=[...document.querySelectorAll('#shortVideoFeed video')];const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.play().catch(()=>{});vids.filter(v=>v!==e.target).forEach(v=>v.pause())}else e.target.pause()}),{threshold:.65});vids.forEach(v=>io.observe(v))}
 function openNewsFeed(){renderNewsViewer(newsCategory);openOverlay('newsOverlay')}
 function renderNewsViewer(cat){document.getElementById('newsViewerCats').innerHTML=['Todos',...categories.filter(x=>x!=='Todos')].map(c=>'<button class="'+(c===cat?'active':'')+'" data-c="'+c+'">'+(catEmoji[c]||'')+' '+c+'</button>').join('');document.querySelectorAll('#newsViewerCats button').forEach(b=>b.onclick=()=>renderNewsViewer(b.dataset.c));const list=posts.filter(x=>cat==='Todos'||x.cat===cat);document.getElementById('newsScroll').innerHTML=list.map(x=>'<article class="news-slide"><img src="'+x.img+'"><div class="slidecopy"><small>'+catEmoji[x.cat]+' '+x.cat.toUpperCase()+' · '+x.time+'</small><h2>'+x.title+'</h2><p>'+x.desc+'</p><button class="btn ghost">Ver publicación completa ↗</button></div></article>').join('');document.getElementById('newsScroll').scrollTop=0}
+let trendVisibleItems=[];
+let trendCurrentIndex=0;
+let trendObserver=null;
 function renderTrends(){
-document.getElementById('trendCats').innerHTML=categories.filter(x=>x!=='Todos').map(c=>'<button class="'+(trendCategory===c?'active':'')+'" data-c="'+c+'">'+catEmoji[c]+' '+c+'</button>').join('');
-document.querySelectorAll('#trendCats button').forEach(b=>b.onclick=()=>{trendCategory=b.dataset.c;renderTrends()});
-const list=trendPosts.filter(x=>trendCategory==='Todos'||x.cat===trendCategory);
-document.getElementById('trendLabel').textContent=trendCategory==='Todos'?'Publicaciones que compartiste para probar':'Tendencias: '+trendCategory;
-const root=document.getElementById('trendList');
-root.innerHTML=list.map(x=>'<article class="tweet"><div class="tweet-top"><div class="xavatar">𝕏</div><div><b>'+x.user+'</b><small>Publicación original de X</small></div><div class="xmark">𝕏</div></div><blockquote class="twitter-tweet" data-theme="dark" data-conversation="none"><a href="'+x.url+'">Ver publicación en X</a></blockquote><div class="embed-note">Categoría de prueba: '+x.cat+' · Clasificación provisoria</div></article>').join('');
-if(window.twttr&&window.twttr.widgets){window.twttr.widgets.load(root)}
+ document.getElementById('trendCats').innerHTML=categories.filter(x=>x!=='Todos').map(c=>'<button class="'+(trendCategory===c?'active':'')+'" data-c="'+c+'">'+catEmoji[c]+' '+c+'</button>').join('');
+ document.querySelectorAll('#trendCats button').forEach(b=>b.onclick=()=>{trendCategory=b.dataset.c;renderTrends()});
+ const list=trendPosts.filter(x=>trendCategory==='Todos'||x.cat===trendCategory);
+ document.getElementById('trendLabel').textContent=trendCategory==='Todos'?'Tus publicaciones elegidas · feed manual':'Tendencias: '+trendCategory;
+ document.getElementById('trendList').innerHTML='<div class="trend-launch"><div><h3>🇦🇷 Deslizá las tendencias</h3><p>'+list.length+' publicaciones seleccionadas por vos. Un post por pantalla, como un feed vertical.</p></div><button class="trend-open" aria-label="Abrir tendencias" onclick="openTrendFeed()">↓</button></div>';
+}
+function openTrendFeed(){
+ const list=trendPosts.filter(x=>trendCategory==='Todos'||x.cat===trendCategory);
+ trendVisibleItems=list;trendCurrentIndex=0;
+ document.getElementById('trendViewerCats').innerHTML=['Todos',...categories.filter(x=>x!=='Todos')].map(c=>'<button class="'+(c===trendCategory?'active':'')+'" data-c="'+c+'">'+(catEmoji[c]||'')+' '+c+'</button>').join('');
+ document.querySelectorAll('#trendViewerCats button').forEach(b=>b.onclick=()=>{trendCategory=b.dataset.c;openTrendFeed();renderTrends()});
+ const root=document.getElementById('trendScroll');
+ root.innerHTML=list.map((x,i)=>'<article class="trend-slide" data-index="'+i+'"><div class="trend-index">'+(i+1)+' / '+list.length+'</div><div class="tweet-frame" id="trend-embed-'+i+'"><div class="tweet-placeholder">Cargando publicación…</div></div><div class="trend-cat">'+catEmoji[x.cat]+' '+x.cat+'</div></article>').join('')||'<div class="trend-slide"><div class="trend-empty">Todavía no hay publicaciones en esta categoría.</div></div>';
+ root.scrollTop=0;
+ if(trendObserver)trendObserver.disconnect();
+ trendObserver=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting&&e.intersectionRatio>.55){trendCurrentIndex=Number(e.target.dataset.index);loadTrendWindow(trendCurrentIndex)}}),{root,threshold:[.55,.8]});
+ root.querySelectorAll('.trend-slide[data-index]').forEach(el=>trendObserver.observe(el));
+ document.getElementById('trendOverlay').classList.add('open');document.body.style.overflow='hidden';
+ loadTrendWindow(0);
+}
+function loadTrendWindow(index){
+ const root=document.getElementById('trendScroll');
+ [index-1,index,index+1].forEach(i=>{
+  if(i<0||i>=trendVisibleItems.length)return;
+  const holder=document.getElementById('trend-embed-'+i);
+  if(!holder||holder.dataset.loaded)return;
+  holder.dataset.loaded='1';
+  const item=trendVisibleItems[i];
+  holder.innerHTML='<blockquote class="twitter-tweet" data-theme="light" data-conversation="none"><a href="'+item.url+'">Ver publicación en X</a></blockquote>';
+  if(window.twttr&&window.twttr.widgets)window.twttr.widgets.load(holder);
+ });
+}
+function moveTrend(direction){
+ const next=Math.max(0,Math.min(trendVisibleItems.length-1,trendCurrentIndex+direction));
+ const slide=document.querySelector('#trendScroll [data-index="'+next+'"]');
+ if(slide)slide.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function closeTrendFeed(){
+ document.getElementById('trendOverlay').classList.remove('open');document.body.style.overflow='';
+ if(trendObserver)trendObserver.disconnect();
 }
 
 document.getElementById('globalSearch').addEventListener('keydown',e=>{if(e.key==='Enter'){const q=e.target.value.toLowerCase();const match=categories.find(c=>c.toLowerCase().includes(q));if(match){trendCategory=match;renderTrends();document.querySelector('#tendencias').scrollIntoView({behavior:'smooth'})}else{newsCategory='Todos';renderNewsChips();document.querySelectorAll('#newsCards .news-card').forEach(x=>x.style.display=x.innerText.toLowerCase().includes(q)?'':'none');document.querySelector('#noticias').scrollIntoView({behavior:'smooth'})}}});
