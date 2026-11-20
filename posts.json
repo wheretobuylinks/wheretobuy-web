@@ -1,5 +1,32 @@
 [
   {
+    "id": "9e0886c9-0c8c-4907-90b6-9dd105fa6951",
+    "type": "article",
+    "category": "wybshorts",
+    "title": "trshgc",
+    "subtitle": "",
+    "excerpt": "",
+    "coverImage": "",
+    "body": "<iframe width=\"873\" height=\"491\" src=\"https://www.youtube.com/embed/P5XJLD1XFu4\" title=\"DesaKTa2 x Lauti El Albañil Cumbiero  // La Carretera - Quien Dice (En Vivo)\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
+    "sections": [
+      {
+        "heading": "",
+        "text": "",
+        "image": ""
+      }
+    ],
+    "videoUrl": "",
+    "socialUrl": "",
+    "tags": [],
+    "product": {
+      "name": "",
+      "price": "",
+      "details": "",
+      "links": []
+    },
+    "createdAt": "2026-11-20T02:44:33.122Z"
+  },
+  {
     "id": "1a1a0410-41ac-48d6-8beb-f477e27f87d2",
     "type": "product",
     "category": "Home & Kitchen",
