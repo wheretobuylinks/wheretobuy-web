@@ -68,16 +68,14 @@ const posts=[
 {cat:'Recuerdos',title:'Un viaje por los momentos que quedaron en la memoria',desc:'Efemérides, nostalgia, cultura pop y recuerdos compartidos.',img:'https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=1000&q=85',time:'Ayer'}
 ];
 const trendPosts=[
-{cat:'Fútbol',user:'Pasión Argentina',handle:'@pasionarg',text:'La pasión por estos colores no se explica. Se siente. 🇦🇷⚽ ¿Cuál fue el partido que nunca vas a olvidar?',likes:'128 mil',replies:'4,2 mil',shares:'19 mil'},
-{cat:'Fútbol',user:'La Tribuna',handle:'@latribuna',text:'Debate del día: ¿cuál fue el mejor gol que viste en una cancha argentina? Los leemos 👇',likes:'86 mil',replies:'8,1 mil',shares:'11 mil'},
-{cat:'Noticias',user:'Radar AR',handle:'@radar_ar',text:'El tema que más conversación generó hoy en Argentina. ¿Qué opinás? 🗞️',likes:'42 mil',replies:'3,4 mil',shares:'7 mil'},
-{cat:'Política',user:'La Conversación',handle:'@conversacion',text:'Una jornada intensa en la agenda pública. Las reacciones y el debate siguen creciendo.',likes:'39 mil',replies:'9,7 mil',shares:'5 mil'},
-{cat:'Música',user:'Modo Música',handle:'@modomusica',text:'Ese tema que suena y automáticamente te cambia el humor. 🎧 ¿Cuál es el tuyo?',likes:'64 mil',replies:'2,1 mil',shares:'12 mil'},
-{cat:'Virales',user:'Internet AR',handle:'@internetar',text:'Argentina nunca decepciona con lo que aparece en internet 😂🔥',likes:'105 mil',replies:'5,6 mil',shares:'22 mil'},
-{cat:'Memes',user:'Memes del Día',handle:'@memesdeldia',text:'Cuando decís “hoy me acuesto temprano” y son las 3:47 AM. 😭',likes:'91 mil',replies:'1,8 mil',shares:'17 mil'},
-{cat:'Videos',user:'Clips AR',handle:'@clipsar',text:'Este clip merece estar en loop. 🔁',likes:'31 mil',replies:'900',shares:'4 mil'},
-{cat:'Fotos',user:'Miradas',handle:'@miradas',text:'Una foto, mil historias. Compartí esa imagen que te dejó sin palabras. 📸',likes:'27 mil',replies:'1,2 mil',shares:'3 mil'},
-{cat:'Recuerdos',user:'Retro Argentina',handle:'@retroar',text:'Si viviste esta época, seguro te acordás de esto. ¿Qué nostalgia desbloqueamos hoy?',likes:'73 mil',replies:'6,2 mil',shares:'14 mil'}
+{cat:'Memes',url:'https://x.com/MemesSV7/status/2123495434446602444',user:'@MemesSV7'},
+{cat:'Virales',url:'https://x.com/En_jupiter_/status/2123510103298961871',user:'@En_jupiter_'},
+{cat:'Virales',url:'https://x.com/santicaseros/status/2123487742470300091',user:'@santicaseros'},
+{cat:'Virales',url:'https://x.com/Ante__/status/2123390193671827574',user:'@Ante__'},
+{cat:'Gaming',url:'https://x.com/csgoclipstwitch/status/2123538350959137067',user:'@csgoclipstwitch'},
+{cat:'Virales',url:'https://x.com/MurciaConLimon/status/2123397425671086569',user:'@MurciaConLimon'},
+{cat:'Noticias',url:'https://x.com/infobae/status/2123464462925811716',user:'@infobae'},
+{cat:'Virales',url:'https://x.com/KrokoBolso/status/2123225226976563452',user:'@KrokoBolso'}
 ];
 let shortCategory='Todos',newsCategory='Todos',trendCategory='Todos';
 function makeChips(target,items,selected,fn){document.getElementById(target).innerHTML=items.map(c=>'<button class="chip '+(c===selected?'active':'')+'" data-c="'+c+'">'+(catEmoji[c]||'')+' '+c+'</button>').join('');document.querySelectorAll('#'+target+' button').forEach(b=>b.onclick=()=>fn(b.dataset.c))}
@@ -89,7 +87,17 @@ function openShortFeed(){renderShortViewer(shortCategory);openOverlay('shortOver
 function renderShortViewer(cat){const options=['Todos',...categories.filter(x=>x!=='Todos')];document.getElementById('shortViewerCats').innerHTML=options.map(c=>'<button class="'+(c===cat?'active':'')+'" data-c="'+c+'">'+(catEmoji[c]||'')+' '+c+'</button>').join('');document.querySelectorAll('#shortViewerCats button').forEach(b=>b.onclick=()=>renderShortViewer(b.dataset.c));const list=shorts.filter(x=>cat==='Todos'||x.cat===cat);document.getElementById('shortVideoFeed').innerHTML=list.map(x=>'<div class="video-item"><video src="'+x.video+'" poster="'+x.poster+'" controls playsinline loop muted></video><div class="v-cat">'+catEmoji[x.cat]+' '+x.cat+'</div><div class="v-actions"><div><b>♡</b>Me gusta</div><div><b>↗</b>Compartir</div></div></div>').join('')||'<div class="video-item"><div class="v-cat">Todavía no hay shorts en esta categoría.</div></div>';document.getElementById('shortVideoFeed').scrollTop=0;const vids=[...document.querySelectorAll('#shortVideoFeed video')];const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.play().catch(()=>{});vids.filter(v=>v!==e.target).forEach(v=>v.pause())}else e.target.pause()}),{threshold:.65});vids.forEach(v=>io.observe(v))}
 function openNewsFeed(){renderNewsViewer(newsCategory);openOverlay('newsOverlay')}
 function renderNewsViewer(cat){document.getElementById('newsViewerCats').innerHTML=['Todos',...categories.filter(x=>x!=='Todos')].map(c=>'<button class="'+(c===cat?'active':'')+'" data-c="'+c+'">'+(catEmoji[c]||'')+' '+c+'</button>').join('');document.querySelectorAll('#newsViewerCats button').forEach(b=>b.onclick=()=>renderNewsViewer(b.dataset.c));const list=posts.filter(x=>cat==='Todos'||x.cat===cat);document.getElementById('newsScroll').innerHTML=list.map(x=>'<article class="news-slide"><img src="'+x.img+'"><div class="slidecopy"><small>'+catEmoji[x.cat]+' '+x.cat.toUpperCase()+' · '+x.time+'</small><h2>'+x.title+'</h2><p>'+x.desc+'</p><button class="btn ghost">Ver publicación completa ↗</button></div></article>').join('');document.getElementById('newsScroll').scrollTop=0}
-function renderTrends(){document.getElementById('trendCats').innerHTML=categories.filter(x=>x!=='Todos').map(c=>'<button class="'+(trendCategory===c?'active':'')+'" data-c="'+c+'">'+catEmoji[c]+' '+c+'</button>').join('');document.querySelectorAll('#trendCats button').forEach(b=>b.onclick=()=>{trendCategory=b.dataset.c;renderTrends()});const list=trendPosts.filter(x=>trendCategory==='Todos'||x.cat===trendCategory);document.getElementById('trendLabel').textContent=trendCategory==='Todos'?'Lo más destacado de Argentina':'Tendencias: '+trendCategory;document.getElementById('trendList').innerHTML=list.map((x,i)=>'<article class="tweet"><div class="tweet-top"><div class="xavatar">'+x.user.charAt(0)+'</div><div><b>'+x.user+'</b><small>'+x.handle+' · X</small></div><div class="xmark">𝕏</div></div><p>'+x.text+'</p><div class="tweet-stats"><span>♡ <strong>'+x.likes+'</strong></span><span>↻ '+x.shares+'</span><span>▢ '+x.replies+'</span></div><div class="embed-note">VISTA DE EMBED · MÉTRICAS Y TEXTO FICTICIOS PARA EL DISEÑO</div></article>').join('')}
+function renderTrends(){
+document.getElementById('trendCats').innerHTML=categories.filter(x=>x!=='Todos').map(c=>'<button class="'+(trendCategory===c?'active':'')+'" data-c="'+c+'">'+catEmoji[c]+' '+c+'</button>').join('');
+document.querySelectorAll('#trendCats button').forEach(b=>b.onclick=()=>{trendCategory=b.dataset.c;renderTrends()});
+const list=trendPosts.filter(x=>trendCategory==='Todos'||x.cat===trendCategory);
+document.getElementById('trendLabel').textContent=trendCategory==='Todos'?'Publicaciones que compartiste para probar':'Tendencias: '+trendCategory;
+const root=document.getElementById('trendList');
+root.innerHTML=list.map(x=>'<article class="tweet"><div class="tweet-top"><div class="xavatar">𝕏</div><div><b>'+x.user+'</b><small>Publicación original de X</small></div><div class="xmark">𝕏</div></div><blockquote class="twitter-tweet" data-theme="dark" data-conversation="none"><a href="'+x.url+'">Ver publicación en X</a></blockquote><div class="embed-note">Categoría de prueba: '+x.cat+' · Clasificación provisoria</div></article>').join('');
+if(window.twttr&&window.twttr.widgets){window.twttr.widgets.load(root)}
+}
+
 document.getElementById('globalSearch').addEventListener('keydown',e=>{if(e.key==='Enter'){const q=e.target.value.toLowerCase();const match=categories.find(c=>c.toLowerCase().includes(q));if(match){trendCategory=match;renderTrends();document.querySelector('#tendencias').scrollIntoView({behavior:'smooth'})}else{newsCategory='Todos';renderNewsChips();document.querySelectorAll('#newsCards .news-card').forEach(x=>x.style.display=x.innerText.toLowerCase().includes(q)?'':'none');document.querySelector('#noticias').scrollIntoView({behavior:'smooth'})}}});
 renderShortChips();renderNewsChips();renderTrends();
-</script></body></html>
+</script><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</body></html>
