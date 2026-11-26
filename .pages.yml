@@ -12,7 +12,9 @@ content:
     type: file
     path: posts.json
     format: json
-    list: true
+    list:
+      collapsible:
+        summary: "{title}"
     fields:
       - name: id
         label: ID
