@@ -1,0 +1,106 @@
+media:
+  - name: uploads
+    label: Imágenes
+    input: uploads
+    output: /uploads
+    categories:
+      - image
+
+content:
+  - name: posts
+    label: Publicaciones
+    type: file
+    path: posts.json
+    format: json
+    list: true
+    fields:
+      - name: id
+        label: ID
+        type: text
+        readonly: true
+      - name: type
+        label: Tipo
+        type: text
+      - name: category
+        label: Categoría
+        type: text
+      - name: title
+        label: Título
+        type: text
+        required: true
+      - name: subtitle
+        label: Subtítulo
+        type: text
+      - name: excerpt
+        label: Resumen
+        type: textarea
+      - name: coverImage
+        label: Imagen de portada (URL)
+        type: text
+      - name: body
+        label: Contenido
+        type: textarea
+      - name: sections
+        label: Secciones
+        type: object
+        list: true
+        fields:
+          - name: heading
+            label: Encabezado
+            type: text
+          - name: text
+            label: Texto
+            type: textarea
+          - name: image
+            label: Imagen (URL)
+            type: text
+      - name: videoUrl
+        label: URL del video
+        type: text
+      - name: socialUrl
+        label: URL social
+        type: text
+      - name: socialPlatform
+        label: Plataforma social
+        type: text
+      - name: tags
+        label: Etiquetas
+        type: text
+        list: true
+      - name: product
+        label: Producto
+        type: object
+        fields:
+          - name: name
+            label: Nombre
+            type: text
+          - name: price
+            label: Precio
+            type: text
+          - name: details
+            label: Detalles
+            type: textarea
+          - name: links
+            label: Enlaces de compra
+            type: object
+            list: true
+            fields:
+              - name: label
+                label: Texto del enlace
+                type: text
+              - name: url
+                label: URL
+                type: text
+      - name: createdAt
+        label: Fecha de creación
+        type: text
+        readonly: true
+    view:
+      layout: list
+      primary: title
+      sort:
+        - createdAt
+      search:
+        - title
+        - category
+        - excerpt
